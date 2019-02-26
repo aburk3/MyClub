@@ -4,6 +4,10 @@ class ClubsController < ApplicationController
     @clubs = Club.all
   end
 
+  def new
+    @club = Club.new
+  end
+
   def show
     @ride = Ride.new
   end
