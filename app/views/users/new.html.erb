@@ -1,0 +1,18 @@
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %><br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :admin, "Check box if you are a theme park owner" %>
+  <%= f.check_box :admin %><br>
+
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Sign in", new_session_path %>
