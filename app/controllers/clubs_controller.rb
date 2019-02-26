@@ -22,4 +22,11 @@ class ClubsController < ApplicationController
     def set_club
       @club = Club.find(params[:id])
     end
+
+    def club_params
+      params.require(:club).permit(
+        :name,
+        :members
+      )
+    end
 end
