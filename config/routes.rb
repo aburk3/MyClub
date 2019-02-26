@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   resources :users
-  root "users#signin"
+  root "sessions#new"
 end
