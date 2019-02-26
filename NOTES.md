@@ -13,4 +13,6 @@
 
 - A Club has many users
 - A Club has many meetings
--  
+
+
+Define starting point for project
