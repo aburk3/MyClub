@@ -9,7 +9,7 @@ class ClubsController < ApplicationController
   end
 
   def show
-    @ride = Ride.new
+    @club = Club.new
   end
 
   def create
