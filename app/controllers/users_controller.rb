@@ -7,7 +7,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-
+  def show
+    @clubs = Club.all
+  end
 
   def create
     @user = User.create(user_params)

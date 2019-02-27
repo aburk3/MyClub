@@ -1,4 +1,11 @@
 <h1>Welcome to bookVin <%= @user.username %>!</h1>
 
-
 <%= link_to "Create Club", new_club_path %>
+<br><br>
+
+<div>
+  <% @clubs.each do |club| %>
+    <% binding.pry %>
+    <%= link_to "#{club.name}", club_path(club) %><br>
+  <% end %>
+</div>
