@@ -1,14 +1,14 @@
 DATA = {
   :user_keys =>
-    ["username", "email", "password"],
+    ["first_name", "last_name", "email", "password"],
   :users => [
-    ["John Stoakes", "john@gmail.com", "password"],
-    ["Max a Million", "max@gmail.com" "password"],
-    ["Mallory Burke", "killin@gmail.com", "password"],
-    ["Jimmy Neutron", "jimmy@gmail.com", "password"],
-    ["Emily Pan", "Dave@gmail.com", "password"],
-    ["James Span", "James@gmail.com", "password"],
-    ["Hulk Jr. III", "April@gmail.com", "password"],
+    ["John", "Stoakes", "john@gmail.com", "password"],
+    ["Max", "Million", "max@gmail.com" "password"],
+    ["Mallory", "Burke", "killin@gmail.com", "password"],
+    ["Jimmy", "Neutron", "jimmy@gmail.com", "password"],
+    ["Emily", "Pan", "Dave@gmail.com", "password"],
+    ["James", "Span", "James@gmail.com", "password"],
+    ["Hulk", "Jr", "April@gmail.com", "password"],
   ],
   :club_keys =>
    ["name", "members"],
