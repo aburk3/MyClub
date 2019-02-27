@@ -1,2 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @club.name %></h1>
+
+<p><u>Club Members</u></p>
+<% @club.users.each do |user| %>
+  <ul>
+    <li><%= user.first_name + " " + user.last_name %></li>
+  </ul>
+<% end %>
