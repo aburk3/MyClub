@@ -1,7 +1,53 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+DATA = {
+  :user_keys =>
+    ["username", "email", "password"],
+  :users => [
+    ["cool john", "john@gmail.com", "password"],
+    ["Max a Million", "max@gmail.com" "password"],
+    ["Killin it", "killin@gmail.com", "password"],
+    ["hereWeGo", "jimmy@gmail.com", "password"],
+    ["myNameIsWhat", "Dave@gmail.com", "password"],
+    ["james314", "James@gmail.com", "password"],
+    ["catsRcool", "April@gmail.com", "password"],
+  ],
+  :club_keys =>
+   ["name", "members"],
+  :clubs => [
+    ["Maceys with Wine", 30],
+    ["CatsNBeer", 5000],
+    ["MalloryCelebration Wine Night", 500],
+  ]
+  # ,
+  # :admins => [
+  #   "Mary Elitch Long",
+  #   "John Elitch"
+  # ]
+}
+
+def main
+  make_users
+  make_clubs
+end
+
+def make_users
+  DATA[:users].each do |user|
+    new_user = User.new
+    user.each_with_index do |attribute, i|
+      new_user.send(DATA[:user_keys][i]+"=", attribute)
+    end
+    new_user.save
+  end
+end
+
+def make_clubs
+  DATA[:clubs].each do |club|
+    new_club = Club.new
+    club.each_with_index do |attribute, i|
+      new_club.send(DATA[:club_keys][i] + "=", attribute)
+    end
+    new_club.users.each {|c| c.save}
+    new_club.save
+  end
+end
+
+main
