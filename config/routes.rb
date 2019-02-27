@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
   post "/join", to: "users#join"
+  get "/signout", to: "sessions#destroy"
 end
