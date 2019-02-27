@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @club.name %></h1>
-<%= button_to 'Join', {:controller => "users", :action => "join", :club_id => @club.id, :user_id=> session[:user_id]}, :method=>:post, class: "btn btn-primary" %><br>
+<% if @club.users.include? current_user %>
+  <%= button_to 'Leave', {:controller => "users", :action => "leave", :club_id => @club.id, :user_id=> session[:user_id]}, :method=>:post, class: "btn btn-primary" %><br>
+<% else %>
+  <%= button_to 'Join', {:controller => "users", :action => "join", :club_id => @club.id, :user_id=> session[:user_id]}, :method=>:post, class: "btn btn-primary" %><br>
+<% end %>
 
 <p><u>Club Members</u></p>
 <% @club.users.each do |user| %>

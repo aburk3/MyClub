@@ -31,8 +31,11 @@ class UsersController < ApplicationController
     if @club.save
       redirect_to club_path(@club)
     else
-      redirect_to @club, notice: "I'm sorry, were not able to join this club."
+      redirect_to @club, notice: "I'm sorry, you were not able to join this club."
     end
+  end
+
+  def leave
   end
 
   private
