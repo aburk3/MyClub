@@ -1,4 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-  has_and_belongs_to_many :clubs
+  has_many :users_clubs
+  has_many :clubs, :through => :users_clubs
 end
