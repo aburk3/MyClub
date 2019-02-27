@@ -1,4 +1,5 @@
 class ClubsController < ApplicationController
+  before_action :set_club, only: [:show, :edit, :update, :destory]
 
   def index
     @clubs = Club.all
@@ -9,13 +10,12 @@ class ClubsController < ApplicationController
   end
 
   def show
-    @club = Club.new
   end
 
   def create
     @club = Club.new(club_params)
     if @club.save
-      redirect_to @club, notice: 'Club was successfully created.'
+      redirect_to @club, notice: "Club was successfully created."
     else
       render :new
     end
