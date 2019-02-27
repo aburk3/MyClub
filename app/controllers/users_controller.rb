@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @club = Club.find(params[:club_id])
     @club.users << current_user
     if @club.save
-      redirect_to club_path(@club)
+      redirect_to club_path(@club), notice: "Congratulations! You've joined this club."
     else
       redirect_to @club, notice: "I'm sorry, you were not able to join this club."
     end
