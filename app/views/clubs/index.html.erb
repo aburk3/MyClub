@@ -1,3 +1,6 @@
+<h1>Clubs</h1>
 <% @clubs.each do |club| %>
-  <%= link_to "#{club.name}", club_path(club) %><br>
+  <% if !club.users.include? current_user %>
+    <%= link_to "#{club.name}", club_path(club) %><br>
+  <% end %>
 <% end %>

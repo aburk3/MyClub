@@ -25,6 +25,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def join
+    @club = Club.find(params[:club_id])
+    @club.users << current_user
+    if @club.save
+      redirect_to club_path(@club)
+    else
+      redirect_to @club, notice: "I'm sorry, were not able to join this club."
+    end
+  end
+
   private
 
     def user_params

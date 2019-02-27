@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @club.name %></h1>
+<%= button_to 'Join', {:controller => "users", :action => "join", :club_id => @club.id, :user_id=> session[:user_id]}, :method=>:post, class: "btn btn-primary" %><br>
 
 <p><u>Club Members</u></p>
 <% @club.users.each do |user| %>
