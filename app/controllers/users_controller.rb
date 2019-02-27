@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @clubs = Club.all
+    binding.pry
+    
   end
 
   def create
