@@ -5,7 +5,6 @@
 
 <div>
   <% @clubs.each do |club| %>
-    <% binding.pry %>
     <%= link_to "#{club.name}", club_path(club) %><br>
   <% end %>
 </div>
