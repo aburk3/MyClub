@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    @clubs = Club.all
+  end
+
   def show
     @clubs = current_user.clubs
   end
