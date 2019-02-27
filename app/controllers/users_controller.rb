@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @clubs = Club.all
+    @clubs = current_user.clubs
   end
 
   def create
