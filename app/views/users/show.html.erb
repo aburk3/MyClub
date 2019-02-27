@@ -4,6 +4,7 @@
 <br><br>
 
 <div>
+  <h3><u>Your Clubs</u></h3>
   <% @clubs.each do |club| %>
     <%= link_to "#{club.name}", club_path(club) %><br>
   <% end %>
