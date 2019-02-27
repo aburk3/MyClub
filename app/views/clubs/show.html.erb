@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @club.name + " - " + "Members: #{@club.users.count}" %></h1>
+
 <% if @club.users.include? current_user %>
   <%= button_to 'Leave', {:controller => "users", :action => "leave", :club_id => @club.id, :user_id=> session[:user_id]}, :method=>:post, class: "btn btn-primary" %><br>
 <% else %>
