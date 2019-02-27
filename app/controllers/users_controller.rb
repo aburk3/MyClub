@@ -36,6 +36,9 @@ class UsersController < ApplicationController
   end
 
   def leave
+    @club = Club.find(params[:club_id])
+    current_user.clubs.destroy(@club)
+    redirect_to @club, notice: "You have successfully left this club!"
   end
 
   private
