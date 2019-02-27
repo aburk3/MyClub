@@ -14,6 +14,7 @@ class ClubsController < ApplicationController
 
   def create
     @club = Club.new(club_params)
+    @club.users << current_user
     if @club.save
       redirect_to @club, notice: "Club was successfully created."
     else

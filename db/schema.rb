@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2019_02_26_012618) do
     t.index ["wine_id"], name: "index_meetings_on_wine_id"
   end
 
+  create_table "user_clubs", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_user_clubs_on_club_id"
+    t.index ["user_id"], name: "index_user_clubs_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -48,13 +57,6 @@ ActiveRecord::Schema.define(version: 2019_02_26_012618) do
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users_clubs", force: :cascade do |t|
-    t.integer "user_id_id", null: false
-    t.integer "club_id_id", null: false
-    t.index ["club_id_id"], name: "index_users_clubs_on_club_id_id"
-    t.index ["user_id_id"], name: "index_users_clubs_on_user_id_id"
   end
 
   create_table "wines", force: :cascade do |t|
