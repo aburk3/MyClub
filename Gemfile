@@ -17,6 +17,10 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 gem 'pry'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+
 gem 'bootstrap-sass', '3.3.7'
 
 # Use CoffeeScript for .coffee assets and views
