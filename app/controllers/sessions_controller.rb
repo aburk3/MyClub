@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(@user)
       else
         @user = User.new(:email => oauth_email, :password_digest => SecureRandom.hex, :name => oauth_name, :image => oauth_image)
+        @user.password = SecureRandom.hex
         @user.first_name = @user.name.split.first
         @user.last_name = @user.name.split.last
         if @user.save
@@ -27,7 +28,7 @@ class SessionsController < ApplicationController
 
           redirect_to user_path(@user)
         else
-          raise user.errors.full_messages.inspect
+          raise @user.errors.full_messages.inspect
         end
       end
     else
