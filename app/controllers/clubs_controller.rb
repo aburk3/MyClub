@@ -13,7 +13,6 @@ class ClubsController < ApplicationController
   end
 
   def create
-    binding.pry
     @club = Club.new(club_params)
     if @club.save
       @club.users << current_user
