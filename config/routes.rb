@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post "/join", to: "users#join"
   get "/signout", to: "sessions#destroy"
   post "/leave", to: "users#leave"
+  get '/auth/facebook/callback' => 'sessions#create'
 end

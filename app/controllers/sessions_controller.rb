@@ -7,25 +7,39 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:user][:email])
-    if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
+    if auth_hash = request.env["omniauth.auth"]
+      # They logged in via OAuth
+      # raise auth_hash.inspect
+      # The person's 100% trusted email coming from Facebook
+      oauth_email = request.env["omniauth.auth"]["info"]["email"]
+      oauth_name = request.env["omniauth.auth"]["info"]["name"]
+      oauth_image = request.env["omniauth.auth"]["info"]["image"]
+      if @user = User.find_by(:email => oauth_email)
+        session[:user_id] = @user.id
+
+        redirect_to user_path(@user)
+      else
+        @user = User.new(:email => oauth_email, :password_digest => SecureRandom.hex, :name => oauth_name, :image => oauth_image)
+        @user.first_name = @user.name.split.first
+        @user.last_name = @user.name.split.last
+        if @user.save
+          session[:user_id] = @user.id
+
+          redirect_to user_path(@user)
+        else
+          raise user.errors.full_messages.inspect
+        end
+      end
     else
-      redirect_to signin_path
+      # Normal Login with email/password
+      @user = User.find_by(email: params[:user][:email])
+      if @user && @user.authenticate(params[:user][:password])
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        redirect_to signin_path
+      end
     end
-  end
-
-  def create_facebook
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.name = auth['info']['name']
-      u.email = auth['info']['email']
-      u.image = auth['info']['image']
-    end
-
-    session[:user_id] = @user.id
-
-    redirect_to user_path(@user)
   end
 
   def destroy
