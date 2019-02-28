@@ -13,9 +13,11 @@ class ClubsController < ApplicationController
   end
 
   def create
+    binding.pry
     @club = Club.new(club_params)
-    @club.users << current_user
     if @club.save
+      @club.users << current_user
+      @club.save # unsure of how to get rid of this, since `@club.users << current_user needs to be saved`
       redirect_to @club, notice: "Club was successfully created."
     else
       render :new
