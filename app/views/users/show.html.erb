@@ -1,15 +1,23 @@
 <img src="<%= @user.image %>">
 
-<h1>Welcome to bookVin <%= @user.first_name + " " + @user.last_name %>!</h1>
-<%= link_to "Log Out", signout_path %><br>
+<% if @user == current_user %>
+  <h1>Welcome to bookVin <%= @user.first_name + " " + @user.last_name %>!</h1>
+  <%= link_to "Log Out", signout_path %><br>
 
-<%= link_to "Create Club", new_club_path %><br>
-<%= link_to "Join New Club", clubs_path %><br>
+  <%= link_to "Create Club", new_club_path %><br>
+  <%= link_to "Join New Club", clubs_path %><br>
+<% end %>
+
+<% if @user != current_user %>
+  <h1><%= @user.first_name + " " + @user.last_name %></h1>
+<% end %>
+
+
 <br><br>
 
 <div>
-  <h3><u>Your Clubs</u></h3>
-  <% @clubs.each do |club| %>
+  <h3><u><%= @user.first_name + "'s " %>Clubs</u></h3>
+  <% @user.clubs.each do |club| %>
     <%= link_to "#{club.name}", club_path(club) %><br>
   <% end %>
 </div>
