@@ -5,5 +5,5 @@ class Club < ActiveRecord::Base
   has_many :meetings
   has_many :books, :through => :meetings
 
-  validates :name, presence: true
+  validates :name, presence: true, :length => {:within => 5..20}, on: :create
 end

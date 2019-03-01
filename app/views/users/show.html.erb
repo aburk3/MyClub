@@ -1,4 +1,4 @@
-<img src="<%= @user.image %>">
+<img src="<%= @user.image %>", class="user_pic">
 
 <% if @user == current_user %>
   <h1>Welcome to bookVin <%= @user.first_name + " " + @user.last_name %>!</h1>
