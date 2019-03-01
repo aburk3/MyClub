@@ -5,8 +5,9 @@
 
 <% if @user == current_user %>
   <h1>Welcome to bookVin <%= @user.first_name + " " + @user.last_name %>!</h1>
-
-  <%= link_to "Create Club", new_club_path %><br>
+  <% if @user.admin == true %>
+    <%= link_to "Create Club", new_club_path %><br>
+  <% end %>
   <%= link_to "Join New Club", clubs_path %><br>
 <% end %>
 
