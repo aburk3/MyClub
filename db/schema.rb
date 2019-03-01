@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_02_26_012618) do
 
-  create_table "books", force: :cascade do |t|
-    t.string "name"
-    t.string "genre"
-    t.integer "pages"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.integer "members"
@@ -31,14 +23,10 @@ ActiveRecord::Schema.define(version: 2019_02_26_012618) do
     t.string "name"
     t.integer "count"
     t.datetime "meeting_datetime"
-    t.integer "book_id"
-    t.integer "wine_id"
     t.integer "club_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_meetings_on_book_id"
     t.index ["club_id"], name: "index_meetings_on_club_id"
-    t.index ["wine_id"], name: "index_meetings_on_wine_id"
   end
 
   create_table "user_clubs", force: :cascade do |t|
@@ -59,13 +47,6 @@ ActiveRecord::Schema.define(version: 2019_02_26_012618) do
     t.string "name"
     t.string "image"
     t.string "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "wines", force: :cascade do |t|
-    t.string "name"
-    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -16,7 +16,7 @@ class ClubsController < ApplicationController
     @club = Club.new(club_params)
     if @club.save
       @club.users << current_user
-      @club.save # unsure of how to get rid of this, since `@club.users << current_user needs to be saved`
+      @club.save # unsure of how to get rid of this, since `@club.users << current_user` needs to be saved
       redirect_to @club, notice: "Club was successfully created."
     else
       render :new
