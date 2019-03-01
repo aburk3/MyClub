@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   def create
     if auth_hash = request.env["omniauth.auth"]
       # They logged in via OAuth
-      # raise auth_hash.inspect
+      
       # The person's 100% trusted email coming from Facebook
       oauth_email = request.env["omniauth.auth"]["info"]["email"]
       oauth_name = request.env["omniauth.auth"]["info"]["name"]

@@ -1,8 +1,9 @@
-<img src="<%= @user.image %>", class="user_pic">
+<% if @user.image %>
+  <img src="<%= @user.image %>", class="user_pic">
+<% end %>
 
 <% if @user == current_user %>
   <h1>Welcome to bookVin <%= @user.first_name + " " + @user.last_name %>!</h1>
-  <%= link_to "Log Out", signout_path %><br>
 
   <%= link_to "Create Club", new_club_path %><br>
   <%= link_to "Join New Club", clubs_path %><br>
