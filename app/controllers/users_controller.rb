@@ -25,6 +25,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+  end
+
   def join
     @club = Club.find(params[:club_id])
     @club.users << current_user
