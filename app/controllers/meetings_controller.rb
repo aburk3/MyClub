@@ -4,6 +4,10 @@ class MeetingsController < ApplicationController
     @meetings = Meeting.all
   end
 
+  def new
+    @meeting = Meeting.new
+  end
+
   def create
     @meeting = Meeting.new(meeting_params)
     if @meeting.save
@@ -17,7 +21,7 @@ class MeetingsController < ApplicationController
 
   private
     def meeting_params
-      params.require(:club).permit(
+      params.require(:meeting).permit(
         :name,
         :description,
         :count,
