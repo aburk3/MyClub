@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, on: :create
   validates :email, uniqueness: true, presence: true, on: :create
   validates :password, presence: true, :length => {:within => 6..40}, on: :create
+  validates :password, presence: true, :length => {:within => 6..40}, on: :update
 end

@@ -19,10 +19,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
-        <a class="navbar-brand" href="<%= edit_user_path %>"/>Edit</a>
-        <a class="navbar-brand" href="<%= signout_path %>"/>Logout</a>
 
+            <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+          <% if @user.id %>
+            <a class="navbar-brand" href="<%= edit_user_path %>"/>Edit</a>
+            <a class="navbar-brand" href="<%= signout_path %>"/>Logout</a>
+          <% end %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
