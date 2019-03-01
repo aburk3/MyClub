@@ -16,37 +16,34 @@
 
 <h3>Meetings</h3>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container">
-	<div class="col-md-5">
-        <div class="panel panel-default">
-            <div class="panel-body">
-               <section class="post-heading">
-                    <div class="row">
-                        <div class="col-md-11">
-                            <div class="media">
-                              <div class="media-body">
-                                <a href="#" class="anchor-username"><h4 class="media-heading"></h4></a>
+<% @meetings.each do |meeting| %>
+  <div class="container">
+  	<div class="col-md-5">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                 <section class="post-heading">
+                      <div class="row">
+                          <div class="col-md-11">
+                              <div class="media">
+                                <div class="media-body">
+                                  <a href="#" class="anchor-username"><h4 class="media-heading"></h4></a>
+                                </div>
                               </div>
-                            </div>
-                        </div>
-                    </div>
-               </section>
-               <section class="post-body">
-                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                   turpis sem, dictum id bibendum eget, malesuada ut massa. Ut scel
-                   erisque nulla sed luctus dapibus. Nulla sit amet mi vitae purus sol
-                   licitudin venenatis. Praesent et sem urna. Integer vitae lectus nis
-                   l. Fusce sapien ante, tristique efficitur lorem et, laoreet ornare lib
-                   ero. Nam fringilla leo orci. Vivamus semper quam nunc, sed ornare magna dignissim sed. Etiam interdum justo quis risus
-                   efficitur dictum. Nunc ut pulvinar quam. N
-                   unc mollis, est a dapibus dignissim, eros elit tempor diam, eu tempus quam felis eu velit.</p>
-               </section>
-            </div>
-        </div>
-	</div>
-</div>
+                          </div>
+                      </div>
+                 </section>
+                 <section class="post-body">
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                     turpis sem, dictum id bibendum eget, malesuada ut massa. Ut scel
+                     erisque nulla sed luctus dapibus. Nulla sit amet mi vitae purus sol
+                     licitudin venenatis. Praesent et sem urna. Integer vitae lectus nis
+                     l. Fusce sapien ante, tristique efficitur lorem et, laoreet ornare lib
+                     ero. Nam fringilla leo orci. Vivamus semper quam nunc, sed ornare magna dignissim sed. Etiam interdum justo quis risus
+                     efficitur dictum. Nunc ut pulvinar quam. N
+                     unc mollis, est a dapibus dignissim, eros elit tempor diam, eu tempus quam felis eu velit.</p>
+                 </section>
+              </div>
+          </div>
+  	</div>
+  </div>
+<% end %>
