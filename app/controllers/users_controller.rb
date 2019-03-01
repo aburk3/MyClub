@@ -1,7 +1,7 @@
 require 'pry'
 
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :join]
 
   def new
     @user = User.new
@@ -24,6 +24,9 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def edit
+  end 
 
   def update
     @user = User.find(params[:id])

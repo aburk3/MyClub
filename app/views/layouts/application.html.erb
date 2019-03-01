@@ -21,8 +21,10 @@
           </button>
 
             <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
-          <% if @user.id %>
-            <a class="navbar-brand" href="<%= edit_user_path %>"/>Edit</a>
+          <% if current_user %>
+            <% if current_page?(user_path(current_user)) %>
+              <a class="navbar-brand" href="<%= edit_user_path %>"/>Edit</a>
+            <% end %>
             <a class="navbar-brand" href="<%= signout_path %>"/>Logout</a>
           <% end %>
         </div>
