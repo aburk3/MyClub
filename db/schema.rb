@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_012618) do
 
   create_table "meetings", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.integer "count"
     t.datetime "meeting_datetime"
     t.integer "club_id"
