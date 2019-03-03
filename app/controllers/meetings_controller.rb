@@ -14,7 +14,7 @@ class MeetingsController < ApplicationController
 
   def new
     @club = Club.find(params[:club_id])
-    @meeting = Meeting.new
+    @meeting = @club.meetings.build
   end
 
   def create
@@ -35,7 +35,7 @@ class MeetingsController < ApplicationController
         :description,
         :count,
         :meeting_datetime,
-        
+
       )
     end
 
