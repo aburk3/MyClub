@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users
   resources :clubs do
-    resources :meetings, only: [:show, :index]
+    resources :meetings, only: [:show, :index, :new]
   end
 
   resources :meetings, only: [:index, :show, :new, :create, :edit, :update]
