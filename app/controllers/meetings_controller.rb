@@ -21,8 +21,7 @@ class MeetingsController < ApplicationController
     @club = Club.find(params[:club_id])
     @club.meetings.build(meeting_params)
     if @club.save
-      binding.pry
-      redirect_to club_path, notice: "Meeting was succesfully created."
+      redirect_to club_path(@club), notice: "Meeting was succesfully created."
     else
       render :new
     end
