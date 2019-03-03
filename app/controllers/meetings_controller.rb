@@ -13,10 +13,12 @@ class MeetingsController < ApplicationController
   end
 
   def new
+    @club = Club.find(params[:club_id])
     @meeting = Meeting.new
   end
 
   def create
+    binding.pry
     @meeting = Meeting.new(meeting_params)
     if @meeting.save
       binding.pry
