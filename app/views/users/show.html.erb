@@ -21,6 +21,6 @@
 <div>
   <h3><u><%= @user.first_name + "'s " %>Clubs</u></h3>
   <% @user.clubs.each do |club| %>
-    <%= link_to "club.name", club_path(club) %><br>
+    <%= link_to club.name, club_path(club) %><br>
   <% end %>
 </div>
