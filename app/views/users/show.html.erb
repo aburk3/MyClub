@@ -5,11 +5,44 @@
 
 <% if @user == current_user %>
   <h1>Welcome <%= @user.first_name + " " + @user.last_name %>!</h1>
+  <hr>
   <% if @user.admin == true %>
     <%= link_to "Create Club", new_club_path %><br>
   <% end %>
   <%= link_to "Join New Club", clubs_path %><br>
 <% end %>
+<hr>
+
+<div class="row">
+  <div class="col-md-6">
+    <h3><u><%= @user.first_name + "'s " %>Clubs</u></h3>
+    <% @user.clubs.each do |club| %>
+      <%= link_to club.name, club_path(club) %><br>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <div class="list-group">
+        <a href="/users/<%=@users.last.id%>" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <p class="mb-1">Recent Clubs Created</p>
+            </div>
+        </a>
+        <% @clubs.each do |i| %>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><%= i.name %></h5>
+                    <small>Type of club</small>
+                </div>
+                <p class="mb-1">Members: <%= i.members %> | Current Book</p>
+                <small>Description</small>
+            </a>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+
 
 <% if @user != current_user %>
   <h1><%= @user.first_name + " " + @user.last_name %></h1>
@@ -17,10 +50,3 @@
 
 
 <br><br>
-
-<div>
-  <h3><u><%= @user.first_name + "'s " %>Clubs</u></h3>
-  <% @user.clubs.each do |club| %>
-    <%= link_to club.name, club_path(club) %><br>
-  <% end %>
-</div>
