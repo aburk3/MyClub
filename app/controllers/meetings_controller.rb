@@ -18,9 +18,9 @@ class MeetingsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @meeting = Meeting.new(meeting_params)
-    if @meeting.save
+    @club = Club.find(params[:club_id])
+    @club.meetings.build(meeting_params)
+    if @club.save
       binding.pry
       redirect_to club_path, notice: "Meeting was succesfully created."
     else
@@ -35,6 +35,7 @@ class MeetingsController < ApplicationController
         :description,
         :count,
         :meeting_datetime,
+        
       )
     end
 
