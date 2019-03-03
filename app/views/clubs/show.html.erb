@@ -14,7 +14,8 @@
   </ul>
 <% end %>
 
-<h3>Meetings</h3><%= button_to 'Create', {:controller => "meetings", :action => "new", :club_id => @club.id, :user_id=> session[:user_id]}, :method=>:get, class: "btn btn-primary" %><br>
+<h3>Meetings</h3><%= link_to "Add New Meeting", new_meeting_path %>
+
 
 <% @club.meetings.each do |meeting| %>
   <div class="container">

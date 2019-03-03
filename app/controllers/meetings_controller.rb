@@ -1,7 +1,15 @@
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destory]
   def index
-    @meetings = Meeting.all
+    if params[:club_id]
+      @meetings = Club.find(params[:club_id]).meetings
+    else
+      @meetings = Meetings.all
+    end
+  end
+
+  def show
+    @meeting = Meeting.find(params[:id])
   end
 
   def new
@@ -26,8 +34,6 @@ class MeetingsController < ApplicationController
         :description,
         :count,
         :meeting_datetime,
-        :club_id,
-        :user_id
       )
     end
 

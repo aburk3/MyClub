@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :users
-  resources :clubs
-  resources :meetings
+  resources :clubs do
+    resources :meetings, only: [:show, :index]
+  end
+
+  resources :meetings, only: [:index, :show, :new, :create, :edit, :update]
+
   root "sessions#new"
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
