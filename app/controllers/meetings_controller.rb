@@ -13,8 +13,7 @@ class MeetingsController < ApplicationController
   end
 
   def new
-    binding.pry
-    @meeting = Meeting.new(meeting_params)
+    @meeting = Meeting.new
   end
 
   def create
