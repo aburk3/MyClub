@@ -36,6 +36,10 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def destroy
+    raise params.inspect
+  end
+
   private
     def meeting_params
       params.require(:meeting).permit(

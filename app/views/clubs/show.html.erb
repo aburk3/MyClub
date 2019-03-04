@@ -28,8 +28,7 @@
                   <div class="media-body">
                     <%= link_to "Edit", edit_club_meeting_path(@club, meeting) %>
 
-                    <%= form_tag(club_meeting_path(@club, meeting)) do %>
-                      <input type="hidden" name="_method" value="DELETE">
+                    <%= form_tag(club_meeting_path(@club, meeting), :method => :delete) do %>
                       <button type="submit" class='btn btn-xs btn-danger' name="button">Delete</button>
                     <% end %>
                   </div>
