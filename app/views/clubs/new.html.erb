@@ -11,7 +11,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name %><br>
+    <%= f.label :name, "Club Name" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="form-group">
@@ -22,8 +22,11 @@
     <%= f.label :description %><br>
     <%= f.text_area :description, size: "55x8" %>
   </div>
-
   <div class="actions">
-    <%= f.submit class: "btn btn-primary" %>
+  	<%= f.submit :Submit, class: 'btn btn-success' %>
+  	<%= link_to "cancel", root_path, :class=>"btn btn-xs btn-danger" %>
+  </div>
+  <div class="actions">
+
   </div>
 <% end %>
