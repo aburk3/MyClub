@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_012618) do
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
-    t.string "category"
+    t.string "club_category"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

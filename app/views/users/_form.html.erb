@@ -23,10 +23,6 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :admin, "Check this box if here to create a club!" %><br>
-    <%= f.check_box :admin, class: "form-check-input" %>
-  </div>
-  <div class="field">
     <%= f.label :password %><br>
     <% if current_user %>
       <%= f.password_field :password, placeholder: "Current Password" %>
