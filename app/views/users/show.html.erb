@@ -1,20 +1,26 @@
 <p id="notice"><%= notice %></p>
-<% if @user.image %>
-  <img src="<%= @user.image %>", class="user_pic">
-<% end %>
-<% if @user != current_user %>
-  <h1><%= @user.first_name + " " + @user.last_name %></h1>
-<% end %>
-
+<div class="row">
+  <div class="col-md-2">
+    <% if @user.image %>
+      <img src="<%= @user.image %>", class="user_pic">
+    <% end %>
+    <% if @user != current_user %>
+      <h1><%= @user.first_name + " " + @user.last_name %></h1>
+    <% end %>
+  </div>
+  <div class="col-md-2">
+    <div class="mt-2">
+      <% if @user.admin == true %>
+        <%= link_to "Create Club", new_club_path %><br>
+      <% end %>
+      <%= link_to "Join New Club", clubs_path %><br>
+    </div>
+  </div>
+</div>
 <% if @user == current_user %>
   <h1>Welcome <%= @user.first_name + " " + @user.last_name %>!</h1>
-  <hr>
-  <% if @user.admin == true %>
-    <%= link_to "Create Club", new_club_path %><br>
-  <% end %>
-  <%= link_to "Join New Club", clubs_path %><br>
 <% end %>
-<hr>
+  <hr>
 
 <div class="row">
   <div class="col-md-6">
@@ -36,8 +42,8 @@
               <h5 class="mb-1"><%= i.name %></h5>
               <small>Type of club:</small>
           </div>
-          <p class="mb-1">Members: <%= i.users.count %> | Club Type:</p>
-          <small>Description</small>
+          <p class="mb-1">Members: <%= i.users.count %> | Club Category: <%= i.club_category %></p>
+          <small>Description: <%= i.description %></small>
         </a>
       <% end %>
     </div>
