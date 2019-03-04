@@ -27,7 +27,11 @@
                 <div class="media">
                   <div class="media-body">
                     <%= link_to "Edit", edit_club_meeting_path(@club, meeting) %>
-                    <%= button_to "Delete", {:controller => "meetings", :action => "destroy", :club_id => @club.id}, :method=>:post, class: 'btn btn-xs btn-danger' %>
+
+                    <form class="" action="<%= club_meeting_path(@club, meeting) %>" method="post">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <button type="submit" class='btn btn-xs btn-danger' name="button">Delete</button>
+                    </form>
                   </div>
                 </div>
               </div>
