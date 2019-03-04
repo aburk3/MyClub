@@ -27,6 +27,15 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def update
+    @meeting = Meeting.find(params[:id])
+    if @meeting.update(meeting_params)
+      redirect_to club_path(@meeting.club_id), notice: "Update Successful."
+    else
+      redirect_to club_path(@meeting.club_id), notice: "Failed to Update."
+    end
+  end
+
   private
     def meeting_params
       params.require(:meeting).permit(
@@ -34,7 +43,6 @@ class MeetingsController < ApplicationController
         :description,
         :count,
         :meeting_datetime,
-
       )
     end
 
