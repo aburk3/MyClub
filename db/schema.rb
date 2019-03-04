@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_012618) do
+ActiveRecord::Schema.define(version: 2019_03_04_013311) do
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "club_category"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
