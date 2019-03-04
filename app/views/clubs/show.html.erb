@@ -28,10 +28,10 @@
                   <div class="media-body">
                     <%= link_to "Edit", edit_club_meeting_path(@club, meeting) %>
 
-                    <form class="" action="<%= club_meeting_path(@club, meeting) %>" method="post">
+                    <%= form_tag(club_meeting_path(@club, meeting)) do %>
                       <input type="hidden" name="_method" value="DELETE">
                       <button type="submit" class='btn btn-xs btn-danger' name="button">Delete</button>
-                    </form>
+                    <% end %>
                   </div>
                 </div>
               </div>
