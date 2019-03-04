@@ -10,10 +10,12 @@
   </div>
   <div class="col-md-2">
     <div class="mt-2">
-      <% if @user.admin == true %>
+      <% if @user.admin == true && @user == current_user %>
         <%= link_to "Create Club", new_club_path %><br>
       <% end %>
-      <%= link_to "Join New Club", clubs_path %><br>
+      <% if @user == current_user %>
+        <%= link_to "Join New Club", clubs_path %><br>
+      <% end %>
     </div>
   </div>
 </div>
