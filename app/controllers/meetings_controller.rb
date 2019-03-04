@@ -37,7 +37,9 @@ class MeetingsController < ApplicationController
   end
 
   def destroy
-    raise params.inspect
+    @meeting = Meeting.find(params[:id])
+    @meeting.destroy
+    redirect_to club_path(@meeting.club_id)
   end
 
   private
