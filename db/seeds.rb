@@ -11,17 +11,12 @@ DATA = {
     ["Hulk", "Jr", "April@gmail.com", "password"],
   ],
   :club_keys =>
-   ["name", "members"],
+   ["name", "club_category", "description"],
   :clubs => [
-    ["Maceys with Wine", 30],
-    ["CatsNBeer", 5000],
-    ["MalloryCelebration Wine Night", 500],
+    ["Maceys with Wine", "Winee", "This is a Club that is all about wine!"],
+    ["Philosophy Club", "Philosophy", "We talk about the most important ideas that philsophers over the ages have pondered."],
+    ["Soccer Club", "Sports", "We will play tons of soccer at least 2 days per week."],
   ]
-  # ,
-  # :admins => [
-  #   "Mary Elitch Long",
-  #   "John Elitch"
-  # ]
 }
 
 def main
