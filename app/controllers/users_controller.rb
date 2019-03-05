@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   def join
     @club = Club.find(params[:club_id])
     @club.users << current_user
+    @club.reached_max
     if @club.save
       redirect_to club_path(@club), notice: "Congratulations! You've joined this club."
     else
@@ -69,4 +70,7 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
+
+
+
 end

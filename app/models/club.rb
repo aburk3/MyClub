@@ -8,4 +8,10 @@ class Club < ActiveRecord::Base
   def is_admin?(user)
     self.admin == user.id
   end
+
+  def reached_max
+    if self.users.count == 30
+      self.has_max = true
+    end
+  end
 end
