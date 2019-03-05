@@ -3,7 +3,7 @@ class Club < ActiveRecord::Base
   has_many :users, :through => :user_clubs
   has_many :meetings
 
-  scope :open_clubs, -> { where(has_max: true) }
+  scope :open_clubs, -> { where(has_max: false) }
 
   validates :name, presence: true, :length => {:within => 5..30}, on: :create
 
