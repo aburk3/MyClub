@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_012618) do
   create_table "user_clubs", force: :cascade do |t|
     t.integer "user_id"
     t.integer "club_id"
+    t.boolean "favorite_club"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["club_id"], name: "index_user_clubs_on_club_id"
