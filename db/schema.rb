@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_012618) do
     t.string "name"
     t.string "club_category"
     t.string "description"
+    t.integer "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

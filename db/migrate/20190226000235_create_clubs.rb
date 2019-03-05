@@ -4,6 +4,7 @@ class CreateClubs < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :club_category
       t.string :description
+      t.integer :admin
 
       t.timestamps
     end

@@ -22,10 +22,6 @@
     <%= f.label :description %><br>
     <%= f.text_area :description, size: "55x8" %>
   </div>
-  <div class="field">
-    <%= f.label :admin, "Check this box if here to create a club!" %><br>
-    <%= f.check_box :admin, class: "form-check-input" %>
-  </div>
   <div class="actions">
   	<%= f.submit :Submit, class: 'btn btn-success' %>
   	<%= link_to "cancel", root_path, :class=>"btn btn-xs btn-danger" %>

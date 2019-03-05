@@ -15,6 +15,7 @@ class ClubsController < ApplicationController
 
   def create
     @club = Club.new(club_params)
+    @club.admin = current_user.id
     if @club.save
       @club.users << current_user
       @club.save # unsure of how to get rid of this, since `@club.users << current_user` needs to be saved
