@@ -8,4 +8,10 @@ class User < ActiveRecord::Base
   validates :password, presence: true, :length => {:within => 6..40}, on: :create
   validates :password, presence: true, :length => {:within => 6..40}, on: :update
 
+  before_save :downcase_fields
+
+  def downcase_fields
+    self.email.downcase!
+  end
+
 end
