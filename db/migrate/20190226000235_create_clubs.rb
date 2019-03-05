@@ -5,7 +5,7 @@ class CreateClubs < ActiveRecord::Migration[5.2]
       t.string :club_category
       t.string :description
       t.integer :admin
-      t.boolean :has_max
+      t.boolean :has_max, default: false
 
       t.timestamps
     end
