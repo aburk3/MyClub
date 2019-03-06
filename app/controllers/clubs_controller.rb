@@ -25,12 +25,19 @@ class ClubsController < ApplicationController
     end
   end
 
+  def make_admin
+    @club = Club.find(params[:club_id])
+    @user = User.find(params[:user_id])
+    @club.admin = @user.id
+    @club.save
+    redirect_to club_path(@club)
+  end
+
   def destroy
     @club = Club.find(params[:id])
     @club.destroy
     redirect_to user_path(@club.admin)
   end
-
 
   private
     def set_club
@@ -44,4 +51,5 @@ class ClubsController < ApplicationController
         :description
       )
     end
+
 end

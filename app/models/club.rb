@@ -16,4 +16,5 @@ class Club < ActiveRecord::Base
       self.has_max = true
     end
   end
+
 end
