@@ -8,7 +8,10 @@
       <h1><%= @user.first_name + " " + @user.last_name %></h1>
     <% end %>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-6">
+    <% if @user == current_user %>
+      <h1>Welcome <%= @user.first_name + " " + @user.last_name %>!</h1>
+    <% end %>
     <div class="mt-2">
       <%= link_to "Create Club", new_club_path %><br>
       <% if @user == current_user %>
@@ -17,9 +20,7 @@
     </div>
   </div>
 </div>
-<% if @user == current_user %>
-  <h1>Welcome <%= @user.first_name + " " + @user.last_name %>!</h1>
-<% end %>
+
   <hr>
 
 <div class="row">
