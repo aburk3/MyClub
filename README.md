@@ -13,7 +13,6 @@ Create Clubs and meetings within those clubs. The creator of a club is made the 
 <img width="1083" alt="screen shot 2019-03-05 at 8 04 46 pm" src="https://user-images.githubusercontent.com/24820716/53850767-01ccad00-3f82-11e9-944f-b3b09da3cb0a.png">
 <hr>
 
-<hr>
 ## Installation
 1. Run `bundle install` to install the required gems
 2. Run `rake db:migrate` to create the development.sqlite3 and schema.rb files
