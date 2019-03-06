@@ -26,6 +26,9 @@ class ClubsController < ApplicationController
   end
 
   def destroy
+    @club = Club.find(params[:id])
+    @club.destroy
+    redirect_to user_path(@club.admin)
   end
 
 
