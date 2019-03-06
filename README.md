@@ -3,10 +3,9 @@ A Rails application with Facebook authentication, password encryption via BCrypt
 # My Demo
 👉 Watch it <a href="#">here</a>.
 <br>
-
-![Login-screen](.png)
-
-![user-screen](.png)
+<hr>
+<img width="1304" alt="screen shot 2019-03-05 at 7 57 18 pm" src="https://user-images.githubusercontent.com/24820716/53850449-e90fc780-3f80-11e9-98b2-8702acf2d648.png">
+<hr>
 
 ## Installation
 1. Run `bundle install` to install the required gems
