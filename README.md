@@ -1,8 +1,9 @@
 A Rails application with Facebook authentication, password encryption via BCrypt, and the ability to create clubs and meetings which other users can join.
 
 # My Demo
-👉 Watch it <a href="#">here</a>.
+👉 Watch it <a href="https://www.youtube.com/watch?v=GHJYs6I5ruQ">here</a>.
 <br>
+OR read my blog post I wrote about this project <a href="https://aburk3.github.io/rails_project_-_myclub">here<a/>.
 <hr>
 Login with Facebook to use a profile picture you already have!
 
