@@ -24,37 +24,44 @@
   </ul>
 <% end %>
 
-<h3><u>Meetings</u></h3>
-<hr>
+
+
 <% if @club.is_admin?(current_user) %>
   <%= button_to 'Create', {:controller => "meetings", :action => "new", :club_id => @club.id}, :method=>:get, class: 'btn btn-success' %><br>
 <% end %>
-<% @club.meetings.each do |meeting| %>
-  <div class="container">
-  	<div class="col-md-5">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <section class="post-heading">
-            <div class="row">
-              <div class="col-md-11">
-                <div class="media">
-                  <div class="media-body">
-                    <%= link_to "Edit", edit_club_meeting_path(@club, meeting) %>
+<% if @club.meetings %>
+  <div class="center">
+    <hr>
+    <h3><u>Meetings</u></h3>
+  </div>
+  <% @club.meetings.each do |meeting| %>
+    <div class="container">
+    	<div class="col-md-5">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <section class="post-heading">
+              <h4><u><%= meeting.name %></u> - <%= meeting.meeting_datetime %></h4>
+              <div class="row">
+                <div class="col-md-11">
+                  <div class="media">
+                    <div class="media-body">
+                      <section class="post-body">
+                        <p><%= meeting.description %></p>
+                      </section>
 
-                    <%= form_tag(club_meeting_path(@club, meeting), :method => :delete) do %>
-                      <button type="submit" class='btn btn-xs btn-danger' name="button">Delete</button>
-                    <% end %>
+                      <%= form_tag(club_meeting_path(@club, meeting), :method => :delete) do %>
+                        <button type="submit" class='btn btn-xs btn-danger' name="button">Delete</button>
+                      <% end %>
+                      <%= link_to "Edit", edit_club_meeting_path(@club, meeting) %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-          <section class="post-body">
-            <h6><u><%= meeting.name %></u> - <%= meeting.meeting_datetime %></h6>
-            <p><%= meeting.description %></p>
-          </section>
+            </section>
+
+          </div>
         </div>
-      </div>
-  	</div>
-  </div>
+    	</div>
+    </div>
+  <% end %>
 <% end %>
