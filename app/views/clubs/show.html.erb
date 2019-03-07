@@ -36,8 +36,5 @@
     <h3><u>Meetings</u></h3>
   </div>
 
-  <% @club.meetings.each do |meeting| %>
-    <%= render :partial => "meetings/meeting_list", :locals => { :meeting => meeting } %>
-  <% end %>
-
+  <%= render :collection => @club.meetings, :partial => "meetings/meeting_list", :as => :meeting %>
 <% end %>
