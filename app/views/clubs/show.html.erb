@@ -48,11 +48,12 @@
                       <section class="post-body">
                         <p><%= meeting.description %></p>
                       </section>
-
-                      <%= form_tag(club_meeting_path(@club, meeting), :method => :delete) do %>
-                        <button type="submit" class='btn btn-xs btn-danger' name="button">Delete</button>
+                      <% if @club.is_admin?(current_user) %>
+                        <%= form_tag(club_meeting_path(@club, meeting), :method => :delete) do %>
+                          <button type="submit" class='btn btn-xs btn-danger' name="button">Delete</button>
+                        <% end %>
+                        <%= link_to "Edit", edit_club_meeting_path(@club, meeting) %>
                       <% end %>
-                      <%= link_to "Edit", edit_club_meeting_path(@club, meeting) %>
                     </div>
                   </div>
                 </div>
