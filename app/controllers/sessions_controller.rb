@@ -8,9 +8,6 @@ class SessionsController < ApplicationController
 
   def create
     if auth_hash = request.env["omniauth.auth"]
-      # They logged in via OAuth
-
-      # The person's 100% trusted email coming from Facebook
       oauth_email = request.env["omniauth.auth"]["info"]["email"]
       oauth_name = request.env["omniauth.auth"]["info"]["name"]
       oauth_image = request.env["omniauth.auth"]["info"]["image"]
@@ -23,7 +20,7 @@ class SessionsController < ApplicationController
         last_name = oauth_name.split.last
         @user = User.new(:first_name => first_name, :last_name => last_name, :email => oauth_email, :password_digest => SecureRandom.hex, :image => oauth_image)
         @user.password = SecureRandom.hex
-        
+
         if @user.save
           session[:user_id] = @user.id
           redirect_to user_path(@user)
