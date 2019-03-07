@@ -13,8 +13,8 @@
       <h1>Welcome <%= @user.first_name + " " + @user.last_name %>!</h1>
     <% end %>
     <div class="mt-2">
-      <%= button_to 'Create Club', new_club_path, method: :get, class: 'btn btn-success' %><br>
       <% if @user == current_user %>
+        <%= button_to 'Create Club', new_club_path, method: :get, class: 'btn btn-success' %><br>
         <%= link_to "Join New Club", clubs_path %><br>
       <% end %>
     </div>
