@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @clubs = Club.all
+    @clubs = Club.last(2)
     @users = User.all
   end
 

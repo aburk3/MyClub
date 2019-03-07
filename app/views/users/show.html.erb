@@ -37,14 +37,13 @@
               <p class="mb-1"><b>Recent Clubs Created</b></p>
           </div>
       </a>
-      <% @clubs.last(2).each do |i| %>
-        <a href="/clubs/<%= i.id %>" class="list-group-item list-group-item-action flex-column align-items-start">
+      <% @clubs.each do |club| %>
+        <a href="/clubs/<%= club.id %>" class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><%= i.name %></h5>
-              <small>Type of club:</small>
+            <h5 class="mb-1"><%= club.name %></h5>
           </div>
-          <p class="mb-1">Members: <%= i.users.count %> | Club Category: <%= i.club_category %></p>
-          <small>Description: <%= i.description %></small>
+          <p class="mb-1">Members: <%= club.users.count %> | Club Category: <%= club.club_category %></p>
+          <small>Description: <%= club.description %></small>
         </a>
       <% end %>
     </div>
