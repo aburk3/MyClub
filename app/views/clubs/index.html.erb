@@ -8,3 +8,18 @@
     <%= link_to "#{club.name}", club_path(club) %><br>
   <% end %>
 <% end %>
+
+<div class="row">
+  <% @clubs.open_clubs.each do |club| %>
+      <form class="col-sm-3 mb-3" method="POST" action="/clubs/:id">
+          <div class="card text-dark mb-3" style="max-width: 18rem;">
+          <input type="hidden" name="club" value=<%=club["id"]%> placeholder="Club Name"></input>
+              <div class="card-header"><%= club["name"] %></div>
+              <div class="card-body">
+                  <h5 class="card-title"><%= club["description"] %></h5>
+              </div>
+              <button class="btn btn-light" style="width: 100%;" type="submit">Join</button>
+          </div>
+      </form>
+  <% end %>
+</div>
