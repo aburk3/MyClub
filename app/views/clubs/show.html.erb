@@ -18,10 +18,15 @@
 <h2><u>Club Members</u></h2>
 <% @club.users.each do |user| %>
   <ul>
-    <li><%= link_to "#{ user.first_name } #{ user.last_name }", user_path(user) %>
-    <% if @club.is_admin?(current_user) && (@club.admin != user.id) %>
-      <%= button_to 'Make Admin', {:controller => "clubs", :action => "make_admin", :club_id => @club.id, :user_id=> user.id}, :method=>:post, class: "btn-xs btn-primary" %></li>
-    <% end %>
+    <li>
+      <%= link_to "#{ user.first_name } #{ user.last_name }", user_path(user) %>
+      <% if @club.is_admin?(current_user) && (@club.admin != user.id) %>
+        <%= button_to 'Make Admin', {:controller => "clubs", :action => "make_admin", :club_id => @club.id, :user_id=> user.id}, :method=>:post, class: "btn-xs btn-primary" %>
+      <% end %>
+      <% if user.id == @club.admin %>
+        (Club Admin)
+      <% end %>
+    </li>
   </ul>
 <% end %>
 <hr>
